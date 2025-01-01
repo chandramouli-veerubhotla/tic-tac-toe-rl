@@ -8,6 +8,9 @@ The goal of this project is to create an intelligent agent that can learn to pla
 
 ## Algorithms
 
+1. Q - Learning (TBD)
+2. SARSA (TBD)
+3. Deep Q - Learning (TBD)
 
 ## Requirements
 
