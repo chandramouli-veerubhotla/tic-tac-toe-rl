@@ -69,6 +69,23 @@ class TicTacToe:
     def update_current_player(self):
         """Update the current player."""
         self.current_player = 1 - self.current_player
+
+    @property
+    def available_moves(self) -> np.ndarray:
+        """Get the available moves on the board."""
+        board = self.board.copy()
+        valid_actions = (np.where(board.flatten() == '')[0])
+        return valid_actions
+
+    @property
+    def current_player_symbol(self):
+        """Get the symbol of the current player."""
+        return self.players[self.current_player]
+
+    @property
+    def alternate_player_symbol(self):
+        """Get the symbol of the alternate player."""
+        return self.players[1 - self.current_player]
     
     def get_game_status(self, player_symbol: str):
         """Check if the game is won or drawn."""
@@ -83,6 +100,6 @@ class TicTacToe:
             return False
 
         def is_draw():
-            return np.all(self.board != '')
+            return np.all(self.board != '').item()
 
         return is_win(), is_draw()
